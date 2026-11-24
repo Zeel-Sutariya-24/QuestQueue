@@ -1,4 +1,4 @@
-# PIXEL QUEUE — a queue-based multiplayer 2D platformer
+# QUEST QUEUE — a queue-based multiplayer 2D platformer
 
 One hero, one controller, everybody watching. Players join a global queue; **only the player at the front controls the
 character**. Everyone else spectates live, votes on community levels and builds levels in a visual editor.

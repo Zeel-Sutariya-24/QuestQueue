@@ -5,7 +5,7 @@ import Providers from "@/components/Providers";
 import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
-  title: "Pixel Queue — one hero, everybody watching",
+  title: "Quest Queue — one hero, everybody watching",
   description:
     "A queue-based multiplayer 2D platformer. One player controls the hero at a time, everyone else watches, votes and builds levels.",
 };
@@ -29,7 +29,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <Navbar />
           <main className="mx-auto w-full max-w-7xl px-4 pb-16 pt-6">{children}</main>
           <footer className="border-t border-line/60 py-6 text-center text-sm text-slate-500">
-            <span className="font-pixel text-[9px]">PIXEL QUEUE</span> — one hero at a time. Built with Next.js, Phaser 3 &amp;
+            <span className="font-pixel text-[9px]">QUEST QUEUE</span> — one hero at a time. Built with Next.js, Phaser 3 &amp;
             Socket.IO.
           </footer>
         </Providers>

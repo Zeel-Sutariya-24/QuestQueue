@@ -46,7 +46,7 @@ export default function Home() {
         <div className="relative z-10 flex min-h-[520px] flex-col items-center justify-center gap-6 px-4 py-14 text-center">
           <div className="animate-slide-up">
             <h1 className="font-pixel glow-text text-3xl leading-tight text-white sm:text-5xl">
-              PIXEL<span className="text-violet">QUEUE</span>
+              QUEST<span className="text-violet"> QUEUE</span>
             </h1>
             <p className="font-pixel mt-3 text-[10px] tracking-widest text-electric sm:text-xs">ONE HERO · ONE CONTROLLER · EVERYBODY WATCHING</p>
           </div>

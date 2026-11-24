@@ -1,6 +1,6 @@
 import Leaderboards from "@/components/leaderboard/Leaderboards";
 
-export const metadata = { title: "Leaderboard — Pixel Queue" };
+export const metadata = { title: "Leaderboard — Quest Queue" };
 
 export default function LeaderboardPage() {
   return (

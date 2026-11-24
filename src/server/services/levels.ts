@@ -119,7 +119,7 @@ export async function listLevels(opts: { sort?: LevelSort; limit?: number; viewe
     return {
       id: r.id,
       name: r.name,
-      creator: r.creator ?? "PixelBot",
+      creator: r.creator ?? "QuestBot",
       data: r.data as LevelData,
       source: r.source,
       difficulty: r.difficultyVotes >= 3 ? Math.round(r.difficultySum / r.difficultyVotes) : r.difficulty,
@@ -146,7 +146,7 @@ export async function getLevel(id: string) {
     .where(eq(levels.id, id))
     .limit(1);
   if (!r || r.status !== "approved") return null;
-  return { id: r.id, name: r.name, creator: r.creator ?? "PixelBot", data: r.data as LevelData };
+  return { id: r.id, name: r.name, creator: r.creator ?? "QuestBot", data: r.data as LevelData };
 }
 
 export async function voteOnLevel(user: AuthUser, input: unknown) {
@@ -227,7 +227,7 @@ export async function loadPlayablePool(): Promise<PoolLevel[]> {
   return rows.map((r) => ({
     id: r.id,
     name: r.name,
-    creator: r.creator ?? "PixelBot",
+    creator: r.creator ?? "QuestBot",
     data: r.data as LevelData,
     difficulty: r.difficulty,
     source: r.source as "community" | "seed",
@@ -245,20 +245,20 @@ const SEED_NAMES = [
   "The Gauntlet",
 ];
 
-/** Seed data: a handful of generated + physics-verified levels owned by "PixelBot". */
+/** Seed data: a handful of generated + physics-verified levels owned by "QuestBot". */
 export async function ensureSeedLevels(): Promise<void> {
   const [{ n }] = await db
     .select({ n: sql<number>`count(*)::int` })
     .from(levels)
     .where(eq(levels.source, "seed"));
   if (n > 0) return;
-  let [bot] = await db.select().from(users).where(eq(users.usernameLower, "pixelbot")).limit(1);
+  let [bot] = await db.select().from(users).where(eq(users.usernameLower, "questbot")).limit(1);
   if (!bot) {
     [bot] = await db
       .insert(users)
       .values({
-        username: "PixelBot",
-        usernameLower: "pixelbot",
+        username: "QuestBot",
+        usernameLower: "questbot",
         passwordHash: "disabled$" + crypto.randomBytes(8).toString("hex"),
         isGuest: false,
       })

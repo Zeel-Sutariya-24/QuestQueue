@@ -28,7 +28,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3">
           <PixelSprite rows={[...PLAYER_TOP, ...LEGS.idle]} palette={PLAYER_PAL} size={3} />
           <span className="font-pixel glow-text text-sm leading-none text-white">
-            PIXEL<span className="text-violet">QUEUE</span>
+            QUEST<span className="text-violet"> QUEUE</span>
           </span>
         </Link>
         <nav className="order-3 -mx-1 flex w-full gap-1 overflow-x-auto md:order-none md:w-auto">
