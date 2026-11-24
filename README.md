@@ -36,12 +36,12 @@ npx vitest run
 
 ## How it is wired
 
-The Socket.IO game server boots inside the Next.js process via `src/instrumentation.ts` and listens on
-`GAME_SERVER_PORT`. `next.config.ts` rewrites `/socket.io/*` to it, so the browser talks to a single origin and
-the whole app deploys as one persistent Node service (`npm run build && npm start`). The backend code lives in
-`src/server` and has **no dependency on React/Next**, so it can be moved to its own process by calling
-`startGameServer()` from a tiny entry file and setting `NEXT_PUBLIC_SOCKET_URL`.
-Serverless hosting (e.g. Vercel functions) is not suitable because the game loop needs a long-lived process.
+For a single persistent Node deployment, the Socket.IO game server boots inside Next.js via
+`src/instrumentation.ts`; `next.config.ts` rewrites `/socket.io/*` to that server. On Vercel, run the game server
+as a separate persistent Node service with `npm run start:game`, then set `NEXT_PUBLIC_SOCKET_URL` on the Vercel
+project to that service's public HTTPS URL. Set `DATABASE_URL` and the same `AUTH_SECRET` on both services; the
+game service also reads the platform-provided `PORT`. The backend code lives in `src/server` and has no dependency
+on React/Next.
 
 ```
 src/

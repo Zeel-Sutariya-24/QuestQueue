@@ -16,7 +16,7 @@ export async function startGameServer(): Promise<void> {
   if (process.env.NEXT_PHASE === "phase-production-build") return;
   g.__pixelQueueGame = "starting";
 
-  const port = Number(process.env.GAME_SERVER_PORT || 4001);
+  const port = Number(process.env.PORT || process.env.GAME_SERVER_PORT || 4001);
   const httpServer = http.createServer((req, res) => {
     if (req.url === "/health") {
       res.writeHead(200, { "content-type": "application/json" });

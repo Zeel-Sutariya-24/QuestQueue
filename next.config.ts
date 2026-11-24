@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
   skipTrailingSlashRedirect: true,
   serverExternalPackages: ["socket.io", "ioredis", "pg"],
   async rewrites() {
+    // Vercel connects directly to the separately hosted game server.
+    if (process.env.VERCEL || process.env.NEXT_PUBLIC_SOCKET_URL) return [];
     return [
       {
         // The Socket.IO game server runs in the same process on its own port.
